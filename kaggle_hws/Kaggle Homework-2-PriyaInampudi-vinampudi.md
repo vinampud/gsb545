@@ -46,3 +46,7 @@ Feature engineering was applied to both models, including binary threshold flags
 ### Conclusion
 
 XGBoost is the stronger model here, achieving a Kaggle LB score of **0.96874** vs Random Forest's **0.96192**. The improvement from bagging to boosting of ~0.007 is still meaningful in the context of this competition. XGBoost was also nearly 3x faster on the full dataset, making it the clearly better choice on both accuracy and efficiency. Further gains would likely come from blending in the original source dataset, adding LightGBM and CatBoost to an ensemble, and more aggressive hyperparameter tuning.
+
+## Phase 2 Plan
+
+The biggest gains would come from blending in the original source dataset to nearly double the training data, adding LightGBM and CatBoost to create an ensemble, and running Optuna to tune XGBoost hyperparameters. I'd also add the logit score features from the reference notebook and apply threshold optimization on the predicted probabilities to better handle the rare High class.
