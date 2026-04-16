@@ -10,7 +10,7 @@ s6e4-stacked-lgb-xgb-cat: Showed the value of blending the original source datas
 s6e4-ensemble-voting-transfer: Highest scorer, showed that combining multiple strong submissions via conditional voting (consensus when models agree, stronger model as fallback when they don't) outperforms any single model. Once I have a few solid models, ensembling predictions is worth doing over picking one winner.
 
 ## EDA and models notebook:
-
+https://github.com/vinampud/gsb545/blob/main/kaggle_hws/hw2_EDA_and_models.ipynb
 
 (^ didn't realize models had to go in their own notebooks, hope this is okay)
 
