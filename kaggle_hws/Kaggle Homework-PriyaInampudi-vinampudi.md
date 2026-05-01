@@ -92,3 +92,76 @@ XGBoost and LightGBM are both gradient boosting methods but differ in implementa
 - LightGBM employs gradient-based one-side sampling and exclusive feature bundling for efficiency on large datasets.
 
 In this assignment, XGBoost slightly outperformed LightGBM, suggesting XGBoost was better suited to the dataset's features and thresholds. Though the difference was small, this could mean a whole lot in a professional work / real-world setting. However, we can still say that LightGBM's performance was excellent, making it a strong alternative. Overall, the boosting approach was effective, with meaningful improvements over the bagging Random Forest from Homework 2, but further improvements would require ensemble methods or additional data as seen in top Kaggle notebooks.
+
+# HOMEWORK 4
+## notebook
+https://github.com/vinampud/gsb545/blob/main/kaggle_hws/hw4_feature_engineering.ipynb
+
+## Feature Engineering, Model Diversity, and Ensembling
+### What I tried
+
+For this assignment, I expanded the workflows from previous assignments by introducing **additional model diversity, new feature engineering, and ensembling**.
+
+In addition to the boosting models from Homework 3 (**XGBoost and LightGBM**), I added a **Logistic Regression** model to provide a fundamentally different approach (linear). This allowed me to see that my models differed meaningfully in terms of assumptions and representation.
+
+I also extended my feature engineering by adding interaction-based features such as:
+- `temp_x_humidity`
+- `moisture_per_rain`
+
+These were designed to capture relationships between environmental conditions rather than relying only on the given individual variables or threshold flags.
+
+### Feature evaluation
+
+To evaluate feature usefulness, I examined the built in **feature importance from the XGBoost model**.
+
+The most important features were:
+- The engineered threshold flags (eg. `soil_lt_25`, `rain_lt_300`)
+- The composite `magic_score`
+- Key environmental variables like temperature and rainfall
+
+This confirms that the feature engineering from previous assignments remains highly effective. The threshold-based features in particular appear to build strong signals related to irrigation need.
+
+The newer interaction features contributed less than the main engineered features, which tells us that while they added some information, the majority of predictive power still comes from the domain-informed threshold features.
+
+### Model performance
+
+| Model | Validation Accuracy | Kaggle Public LB Score |
+|------|-------------------|------------------------|
+| XGBoost | 0.985881 | 0.95923 |
+| LightGBM | 0.985825 | 0.95987 |
+| Logistic Regression | 0.867659 | 0.70948 |
+| Ensemble (XGB + LGB) | 0.985889 | **0.95949** |
+
+The ensemble combined XGBoost and LightGBM using **probability averaging**, which helped reduce variance and leverage the strengths of both models.
+
+### What worked well
+
+- **Boosting models remained the strongest performers**, with both XGBoost and LightGBM getting very similar Kaggle scores.
+- **LightGBM slightly outperformed XGBoost on the leaderboard**, even though their validation accuracies were almost identical.
+- **Feature engineering continued to drive performance**, especially the threshold-based and composite features.
+- **Ensembling provided a small improvement**, increasing performance slightly over individual models.
+- Adding Logistic Regression increased model diversity, which is useful for ensembling, even though its standalone performance was much lower.
+
+### What didn’t work as well
+
+- **Improvements from ensembling were very small**, showing us that XGBoost and LightGBM are already capturing similar patterns in the data.
+- The **interaction features did not significantly outperform existing engineered features**.
+- **Logistic Regression performed much worse (~0.71 LB score)**, showing that linear models (as expected) struggle to capture the nonlinear relationships in this dataset.
+
+### Interpretation of results
+
+There is a noticeable difference between validation accuracy and Kaggle leaderboard scores, which highlights the importance of generalization.
+
+While the models perform extremely well on given validation data, performance on unseen data is lower. This suggests that:
+
+- These models may be slightly overfitting to patterns in the training data
+- Validation accuracy may be optimistic due to the simplicity of the train-test split
+- Additional improvements would likely require more robust validation (like cross-validation) or more diverse models
+
+Additionally, the very small differences between XGBoost, LightGBM, and the ensemble indicate that the models are converging toward similar performance limits given the current features.
+
+### What I will continue to use
+
+- XGBoost as the primary model
+- Domain-informed feature engineering (thresholds + composite features)
+- Ensembling as a final step to improve performance
