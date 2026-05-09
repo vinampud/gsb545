@@ -1,0 +1,11 @@
+id,customer_age,occupation_type,relationship_status,education_background,has_credit_issue,mortgage_status,personal_loan_status,last_contact_month,day_of_week,contact_time_minutes,contact_attempt_count,days_since_prior_contact,prior_contact_count,prior_outcome_status,economic_activity_change,consumer_price_index,consumer_confidence_index,reference_interest_rate,employment_level_index,accepted_offer,is_repeat_customer,recent_contact_flag
+12556,28,services,married,high.school,no,yes,no,jul,tue,286,1,999,0,nonexistent,1.4,93.918,-42.7,4.962,5228.1,0,0,0
+35451,27,admin.,married,university.degree,no,yes,yes,jul,fri,178,2,999,0,nonexistent,1.4,93.918,-42.7,4.959,5228.1,0,0,0
+30592,43,self-employed,married,high.school,unknown,yes,no,apr,wed,345,1,999,0,nonexistent,-1.8,93.075,-47.1,1.498,5099.1,0,0,0
+17914,43,admin.,single,university.degree,no,yes,no,aug,fri,213,2,999,0,nonexistent,1.4,93.444,-36.1,4.963,5228.1,0,0,0
+3315,41,admin.,married,unknown,no,no,no,sep,wed,845,1,7,3,success,-1.1,94.199,-37.5,0.886,4963.6,1,1,1
+29191,33,admin.,married,university.degree,no,yes,yes,aug,fri,661,1,999,0,nonexistent,1.4,93.444,-36.1,4.964,5228.1,0,0,0
+30549,32,technician,single,high.school,no,yes,no,may,tue,1531,1,999,0,nonexistent,-1.8,92.893,-46.2,1.291,5099.1,1,0,0
+6098,32,blue-collar,single,basic.9y,no,yes,no,jul,tue,56,4,999,0,nonexistent,1.4,93.918,-42.7,4.961,5228.1,0,0,0
+6252,37,management,married,university.degree,no,yes,no,oct,thu,339,3,3,3,success,-1.1,94.601,-49.5,1.025,4963.6,1,1,1
+13373,46,admin.,married,high.school,no,no,no,aug,mon,428,2,999,3,failure,-1.7,94.027,-38.3,0.898,4991.6,0,1,0
